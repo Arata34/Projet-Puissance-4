@@ -24,6 +24,7 @@ class Grid {
             
         }
         System.out.print("##########\n");
+        System.out.print(" ABCDEFGH \n");
     }
 
     private  void createLine() {
