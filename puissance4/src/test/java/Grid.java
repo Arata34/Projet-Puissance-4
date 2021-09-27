@@ -24,7 +24,7 @@ class Grid {
             
         }
         System.out.print("##########\n");
-        System.out.print(" ABCDEFGH \n");
+        System.out.print(" 12345678 \n");
     }
 
     private  void createLine() {
@@ -37,6 +37,22 @@ class Grid {
         for (int i = 0; i <= this.length -1; i++) {
             this.grid[i] = this.line;
         }
+    }
+
+    private boolean gridIsFull(String[][] grid, int length, int height) {
+        boolean isFull = false;
+        int checkFull = 0;
+        for (String[] i : grid) {
+            for (String j : i) {
+                if (j != "X" || j != "O") {
+                    checkFull++;
+                }
+            }
+        }
+        if (checkFull == (length*height)){
+            isFull = true;
+        }
+        return(isFull);
     }
 
 }
