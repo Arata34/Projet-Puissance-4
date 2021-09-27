@@ -39,17 +39,17 @@ class Grid {
         }
     }
 
-    public boolean gridIsFull(String[][] grid, int length, int height) {
+    public boolean gridIsFull() {
         boolean isFull = false;
         int checkFull = 0;
-        for (String[] i : grid) {
+        for (String[] i : this.grid) {
             for (String j : i) {
                 if (j != "X" || j != "O") {
                     checkFull++;
                 }
             }
         }
-        if (checkFull == (length*height)){
+        if (checkFull == (this.length*this.height)){
             isFull = true;
         }
         return(isFull);
