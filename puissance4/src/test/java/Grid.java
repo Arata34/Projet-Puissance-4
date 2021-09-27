@@ -10,14 +10,14 @@ class Grid {
     }
 
     public static void main(String[] args) {
-        Grid playForme = new Grid(6, 8);
+        Grid playForme = new Grid(8, 6);
         playForme.createLine();
         playForme.createGrid();
         
-        for (String[] i : playForme.grid) {
+        for (String[] descendre : playForme.grid) {
             System.out.print("#");
-            for (String j : i) {
-                System.out.print(j);
+            for (String line : descendre) {
+                System.out.print(line);
             }
             System.out.print("#\n");
             
@@ -28,18 +28,18 @@ class Grid {
     }
 
     private  void createLine() {
-        for (int i = 0; i <= this.height-1; i++){
+        for (int i = 0; i <= this.length-1; i++){
             this.line[i] = " ";
         }
     }
 
     private  void createGrid() {
-        for (int i = 0; i <= this.length -1; i++) {
+        for (int i = 0; i <= this.height -1; i++) {
             this.grid[i] = this.line;
         }
     }
 
-    private boolean gridIsFull(String[][] grid, int length, int height) {
+    public boolean gridIsFull(String[][] grid, int length, int height) {
         boolean isFull = false;
         int checkFull = 0;
         for (String[] i : grid) {
