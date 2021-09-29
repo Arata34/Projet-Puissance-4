@@ -55,4 +55,9 @@ class Grid {
         return(isFull);
     }
 
+    public boolean victory() {
+        boolean victory = false;
+        for (int i = 0; i <this.length; i++) {}
+        return(victory);
+    }
 }
