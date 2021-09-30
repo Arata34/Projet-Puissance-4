@@ -1,8 +1,8 @@
 class Grid {
-    int height = 6;
-    int length = 8;
-    String[] line = new String[8];
-    String[][] grid = new String[6][8];
+    int height = 0;
+    int length = 0;
+    String[] line = new String[length];
+    String[][] grid = new String[height][length];
 
     Grid(int x, int y){
         this.height = y;
@@ -74,7 +74,7 @@ class Grid {
                     System.out.println("player 1 win");
                     return (true);
                 } else if (nbrX == 4){
-                    System.out.println("player 3 win");
+                    System.out.println("player 2 win");
                     return (true);
                 }
             } 
