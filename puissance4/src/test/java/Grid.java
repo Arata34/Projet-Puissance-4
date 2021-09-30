@@ -44,7 +44,7 @@ class Grid {
         int checkFull = 0;
         for (String[] i : this.grid) {
             for (String j : i) {
-                if (j != "X" || j != "O") {
+                if (j == "X" || j == "O") {
                     checkFull++;
                 }
             }
