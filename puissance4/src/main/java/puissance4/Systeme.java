@@ -2,9 +2,15 @@ package puissance4;
 
 import java.io.IOException;
 
+import javax.swing.plaf.ToolBarUI;
+
 class Systeme {
     public static void main(String[] args) {
-        
+        Player player1 = new Player("Antoine", "X");
+        Player player2 = new Player("Pierric", "O");
+        Grid grid = new Grid(8, 6);
+        Partie game = new Partie(player1, player2, grid);
+        game.Tours(player1, player2);
     }
 }
 
@@ -28,12 +34,12 @@ class Partie {
     }
 
     private Boolean Egaliter(Grid grid){
-        return Grid.IsFull();
+        return grid.gridIsFull();
     }
 
-    public void Tours(Player player){
+    public void Tours(Player player, Player player2){
         int PlayerInput = 0;
-        //reload la Grid
+        //reload l'affichage de la Grid
         java.io.InputStreamReader isr = new java.io.InputStreamReader(System.in);
         java.io.BufferedReader br = new java.io.BufferedReader(isr);
         try {
@@ -41,30 +47,21 @@ class Partie {
         }catch(IOException e){
             System.err.println(e.getMessage());
         }
-        if (PlayerInput >= 1 && PlayerInput <= this.grid.length){
-            for (String[] x : this.grid.grid){
-                for (String y : x){
-                    if (y != "X" || x != "Y"){
-
-                    }
+    if (PlayerInput >= 1 && PlayerInput <= this.grid.length){
+            int temp = 0;
+            for (String y : this.grid.grid[PlayerInput]){
+                temp++;
+                if (this.grid.grid[PlayerInput][this.grid.height-1] != " ") {
+                    this.Tours(player, player2);
+                }else if (y != "X" || y != "Y"){
+                    this.grid.grid[PlayerInput][temp] = player.symbole;
                 }
             }
         }
-        // test si il choisi un emplacement valide
-        //si oui
-            //placer le symbole du player sur la Grid
-            //test victoire
-                //si oui fin de la partie 
-                //si non fin du tours et teste Grid plein
-        //si non
-            //this.Tours(player);
-            //afficher un msg d'erreur
+        if (this.grid.gridIsFull() == true){
+            //fin de game
+        }else{
+            this.Tours(player2, player);
+        }
     }
-
 }
-
-// class Tours {
-//     public Tours(Player player) {
-        
-//     }
-// }
