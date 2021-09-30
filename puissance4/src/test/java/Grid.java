@@ -56,8 +56,29 @@ class Grid {
     }
 
     public boolean victory() {
-        boolean victory = false;
-        for (int i = 0; i <this.length; i++) {}
-        return(victory);
+        int nbrO = 0;
+        int nbrX = 0;
+        for (int i = 0; i <this.length; i++) {
+            if (this.grid[1][i] != " ") {
+                switch (this.grid[1][i]) {
+                    case "O":
+                        nbrO++;
+                        nbrX = 0;
+                        break;
+                    case "X":
+                        nbrX++;
+                        nbrO = 0;
+                        break;
+                }
+                if (nbrO == 4) {
+                    System.out.println("player 1 win");
+                    return (true);
+                } else if (nbrX == 4){
+                    System.out.println("player 3 win");
+                    return (true);
+                }
+            } 
+        }
+        return(false);
     }
 }
