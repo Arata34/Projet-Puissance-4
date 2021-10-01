@@ -1,36 +1,69 @@
 package puissance4;
 
-
-
-public class Grid {
-    int height = 8;
-    int length = 6;
-    String[] line = new String[8];
-    String[][] grid = new String[6][];
+class Grid {
+    int height = 6;
+    int length = 8;
+    String[] Colonne = new String[6];
+    String[][] grid = new String[8][6];
 
     Grid(int x, int y){
-        this.height = x;
-        this.length = y;
+        this.height = y;
+        this.length = x;
     }
 
     public static void main(String[] args) {
-        Grid grid = new Grid(6, 8);
-        grid.createLine();
-        grid.createGrid();
-        System.out.println(grid);
-    }
-
-    private  void createLine() {
-        for (int i = 0; i <= this.length; i++){
-            this.line[i] = "5";
+        Grid playForme = new Grid(8, 6);
+        playForme.createColonne();
+        playForme.createGrid();
+        
+        for (String[] descendre : playForme.grid) {
+            System.out.print("#");
+            for (String Colonne : descendre) {
+                System.out.print(Colonne);
+            }
+            System.out.print("#\n");
+            
+            
         }
-        System.out.println(line);
+        System.out.print("##########\n");
+        System.out.print(" 12345678 \n");
     }
 
-    private  void createGrid() {
-        for (int i = 0; i <= this.height; i++) {
-            this.grid[i] = this.line;
+    public  void createColonne() {
+        for (int i = 0; i <= this.height-1; i++){
+            this.Colonne[i] = " ";
         }
     }
 
+    public  void createGrid() {
+        for (int i = 0; i <= this.length -1; i++) {
+            String[] ColonneCopie = new String[6];
+            for(int j = 0; j < 6; j++){
+                ColonneCopie[j] = " "; 
+            }
+            this.grid[i] = ColonneCopie;
+        }
+    }
+
+    public boolean gridIsFull() {
+        boolean isFull = false;
+        int checkFull = 0;
+        for (String[] i : this.grid) {
+            for (String j : i) {
+                if (j != "X" || j != "O") {
+                    checkFull++;
+                }
+            }
+        }
+        if (checkFull == (this.length*this.height)){
+            isFull = true;
+        }
+        return(isFull);
+    }
+
+    public boolean victory() {
+        boolean victory = false;
+        for (int i = 0; i <this.length; i++) {}
+        return(victory);
+    }
 }
