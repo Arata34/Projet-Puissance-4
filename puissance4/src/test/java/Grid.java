@@ -1,6 +1,6 @@
 class Grid {
-    int height = 0;
-    int length = 0;
+    int height =6;
+    int length = 8;
     String[] line = new String[length];
     String[][] grid = new String[height][length];
 
@@ -13,11 +13,13 @@ class Grid {
         Grid playForme = new Grid(8, 6);
         playForme.createLine();
         playForme.createGrid();
+        //int test = 0;
         
         for (String[] descendre : playForme.grid) {
             System.out.print("#");
             for (String line : descendre) {
-                System.out.print(line);
+                //test++;
+                System.out.print(line /*+ test*/);
             }
             System.out.print("#\n");
             
