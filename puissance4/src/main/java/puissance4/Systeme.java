@@ -78,6 +78,9 @@ class Partie {
                     break;
                 }
             }
+        }else{
+            System.out.println("Colonne invalide");
+            this.Tours(player, player2);
         }
         if (this.grid.gridIsFull() == false){
             //fin de game
